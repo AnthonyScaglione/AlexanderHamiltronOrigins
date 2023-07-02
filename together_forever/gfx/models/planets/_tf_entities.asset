@@ -1,0 +1,65 @@
+entity = { # A
+	name = "rogue_hive_01_entity"
+	pdxmesh = "planet_non_clouded_mesh"
+	
+	default_state = "idle"
+
+	scale = 2.0
+
+    meshsettings = {
+	name = "planet_geosphereShape"
+	texture_diffuse = "infested_diffuse.dds"
+	texture_normal = "infested_normal.dds"
+	texture_specular = "infested_spec.dds"
+	}
+
+	##pole texture override
+	meshsettings = {
+	name = "polesShape"
+	texture_diffuse = "brown_dwarf_poles_01_diffuse.dds"
+	}
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_world_hive" } }
+	}
+}
+
+entity = {  # Rogue Hive Star
+	name = "hive_star_class_star_entity"
+	pdxmesh = "planet_non_clouded_mesh"
+	
+	#planet surface texture override	
+	meshsettings = {
+		name = "planet_geosphereShape"
+		texture_diffuse = "infested_diffuse.dds"
+		texture_normal = "infested_normal.dds"
+		texture_specular = "infested_spec.dds"
+		shader = "PdxMeshPlanetEmissive"
+	}
+	
+		
+	##cloud texture override
+	meshsettings = {
+		name = "clouds_geosphereShape"
+		texture_diffuse = "brown_dwarf_01_clouds_diffuse.dds"
+		texture_normal = "nonormal.dds"
+		texture_specular = "nospec.dds"
+	}
+	
+	##pole texture override
+	meshsettings = {
+		name = "polesShape"
+		texture_diffuse = "brown_dwarf_poles_01_diffuse.dds"
+		texture_normal = "nonormal.dds"
+		texture_specular = "nospec.dds"
+	}
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" time_offset = { 0 100 }
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class" } }
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_planet_class_02" } }
+	}
+	
+	scale = 35.0
+}

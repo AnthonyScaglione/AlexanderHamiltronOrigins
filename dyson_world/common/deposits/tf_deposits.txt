@@ -1,0 +1,24 @@
+tf_crash_site = {
+	is_for_colonizable = yes
+	use_for_min_max_adjustments = yes
+
+	category = deposit_cat_rare
+
+	planet_modifier = {
+		planet_researchers_physics_research_produces_mult = 0.05
+        planet_researchers_society_research_produces_mult = 0.05
+        planet_researchers_engineering_research_produces_mult = 0.05
+        job_spawning_drone_add = 1
+	}
+
+    resources = {
+		category = planet_deposits
+		produces = {
+			alloys = 3
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

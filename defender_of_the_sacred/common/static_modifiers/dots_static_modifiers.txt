@@ -1,0 +1,10 @@
+specialist_holy_vassal_neighbor = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_specialist_holy_vassal_neighbor.dds"
+	pop_citizen_happiness = 0.05
+}
+
+dots_holy_world = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_consecrated_worlds.dds"
+	icon_frame = 3
+    habitability_floor_add = 0.6
+}

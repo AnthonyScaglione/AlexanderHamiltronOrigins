@@ -1,0 +1,15 @@
+origin_together_forever = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_together_forever.dds"
+	picture = GFX_origin_together_forever
+	description = "origin_together_forever_effects"
+	starting_colony = pc_rogue_hive
+	max_once_global = yes
+	random_weight = { base = 1 }
+	initializers = { tf_start_init }
+	possible = { 
+		authority = { value = auth_hive_mind }
+	}
+	#flags = { custom_start_screen }
+	#advanced_start = yes
+}

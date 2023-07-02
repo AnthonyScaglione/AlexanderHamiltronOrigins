@@ -1,0 +1,11 @@
+on_yearly_pulse = {
+	events = {
+		vftdengine.10     # Enthralled assimilation
+	}
+}
+
+on_game_start_country = {
+	events = {
+		vftdengine.03
+	}
+}

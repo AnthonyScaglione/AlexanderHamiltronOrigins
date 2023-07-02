@@ -1,0 +1,55 @@
+dw_decision_harvest_planet = {
+	owned_planets_only = no
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+			energy = 1000
+		}
+	}
+
+	potential = {
+        exists = space_owner
+        space_owner = {
+            has_origin = origin_dyson_world
+            has_country_flag = restoring_dyson_world
+        }
+        NOR = {
+            is_planet_class = pc_ruined_dyson_panel
+            is_planet_class = pc_dyson_panel
+        }
+		is_colonizable = yes
+        custom_tooltip_fail = {
+			text = dw_decision_harvest_planet_tooltip.fail_alt
+			NOT = { has_planet_flag = has_dw_planet_cracker }
+		}
+	}
+
+    allow = {
+        custom_tooltip_fail = {
+			text = dw_decision_harvest_planet_tooltip.fail_anom
+			has_anomaly = no
+		}
+    }
+
+	effect = {
+        custom_tooltip = dw_decision_harvest_planet_tooltip
+		hidden_effect = {
+			set_planet_flag = has_dw_planet_cracker
+			solar_system = {
+				spawn_megastructure = {
+					type = dw_planet_cracker_incomplete
+					planet = root
+					orbit_distance = 0
+					owner = space_owner
+					init_effect = { upgrade_megastructure_to = dw_planet_cracker }
+				}
+			}
+			if = {
+				limit = { exists = orbital_station }
+				orbital_station = { dismantle = yes }
+			}
+		}
+	}
+}

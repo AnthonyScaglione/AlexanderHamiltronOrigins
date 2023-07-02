@@ -1,0 +1,51 @@
+specialist_holy_vassal = {
+	term = specialist_type
+	triggered_loyalty_change = {
+		trigger = {
+			target = { is_spiritualist = yes }
+		}
+		loyalty_change = 5
+		ai_acceptance = {
+			subject = 25
+		}
+	}
+	triggered_loyalty_change = {
+		trigger = {
+			target = { is_materialist = yes }
+		}
+		loyalty_change = -20
+		ai_acceptance = {
+			subject = -100
+		}
+	}
+	activate_effect = {
+		convert_to_specialist = specialist_holy_vassal
+		target = {
+			if = {
+				limit = {
+					is_galactic_community_member = yes
+					is_active_resolution = resolution_intergalacticdirective_a_voice_for_all
+				}
+				add_modifier = {
+					modifier = resolution_galcom_bulwark_modifier
+					days = -1
+				}
+			}
+		}
+	}
+
+	deactivate_effect = {
+		target = {
+			if = {
+				limit = {
+					has_modifier = resolution_galcom_bulwark_modifier
+				}
+				remove_modifier = resolution_galcom_bulwark_modifier
+			}
+		}
+	}
+
+	potential = {
+		agreement_preset = preset_holy_vassal
+	}
+}

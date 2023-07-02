@@ -1,0 +1,23 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_origin_dyson_world"
+		texturefile = "gfx/event_pictures/origins/origin_dyson_world.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_situation_stage_9"
+		texturefile = "gfx/interface/icons/situation_log/situations/stages/situation_severity_level_number_9.dds"
+	}
+
+	spriteType = {
+		name = "GFX_situation_stage_10"
+		texturefile = "gfx/interface/icons/situation_log/situations/stages/situation_severity_level_number_10.dds"
+	}
+
+	spriteType = {
+		name = "GFX_planet_type_dyson_world"
+		texturefile = "gfx/interface/icons/colony_dyson_world.dds"
+	}
+}
+

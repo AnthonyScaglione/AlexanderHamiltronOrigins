@@ -1,0 +1,120 @@
+@protectorate_tech_threshold = 0.4
+@protectorate_tech_switch = 0.5
+
+@specialist_base_acceptance_value = 50
+@specialist_subject_base_acceptance_value = 50
+@specialist_aligned_ethics_value = 50
+@specialist_unaligned_ethics_value = -50
+
+preset_holy_vassal = {
+	specialist_type = specialist_holy_vassal
+	term_data = {
+		resource_terms = {
+			{
+				key = resource_subsidies_basic
+				value = -0.15
+			}
+            {
+				key = resource_subsidies_research
+				value = 0.15
+			}
+            {
+				key = resource_subsidies_advanced
+				value = 0.15
+			}
+		}
+		discrete_terms = {
+			{
+				key = specialist_type
+				value = specialist_holy_vassal
+			}
+			{
+				key = subject_integration
+				value = subject_can_not_be_integrated
+			}
+			{
+				key = subject_diplomacy
+				value = subject_can_do_diplomacy_but_not_vote
+			}
+			{
+				key = subject_expand
+				value = subject_can_expand
+			}
+			{
+				key = joins_overlord_wars
+				value = joins_overlord_wars_defensive
+			}
+			{
+				key = joins_subject_wars
+				value = joins_subject_wars_defensive
+			}
+			{
+				key = subject_holdings_limit
+				value = subject_holdings_limit_1
+			}
+			{
+				key = subject_loyalty
+				value = subject_loyalty_effects
+			}
+            {
+				key = subject_sensors
+				value = subject_does_not_get_sensors
+			}
+			{
+				key = protectorate
+				value = subject_is_not_protectorate
+			}
+		}
+	}
+
+	overlord_weight = {
+		base = @specialist_base_acceptance_value
+		modifier = {
+			add = @specialist_aligned_ethics_value
+			is_spiritualist = yes
+		}
+		modifier = {
+			factor = 0.5
+			has_specialist_subject_type = { TYPE = holy_vassal }
+			NOT = { FROM = { is_specialist_subject_type = { TYPE = holy_vassal } } }
+		}
+		modifier = {
+			factor = 1.5
+			FROM = { is_specialist_subject_type = { TYPE = holy_vassal } }
+		}
+		modifier = {
+			factor = 1.2
+			num_rivals > 0
+		}
+	}
+
+	subject_weight = {
+		base =  25
+		modifier = {
+			add = @specialist_aligned_ethics_value
+			is_spiritualist = yes
+		}
+		modifier = {
+			add = @specialist_unaligned_ethics_value
+			is_materialist = yes
+		}
+	}
+
+	potential = {
+		has_overlord_dlc = yes
+		NOR = {
+			has_civic = civic_inwards_perfection
+			FROM = { has_civic = civic_inwards_perfection }
+		}
+		OR = {
+			FROM = { has_origin = origin_imperial_vassal_overlord }
+			is_specialist_subject_type = { TYPE = holy_vassal }
+			has_country_flag = specialistion_subject_conversion_flag
+			tech_unlocked_ratio = {
+				who = from
+				ratio >= @protectorate_tech_threshold
+			}
+			has_origin = origin_enlightened
+		}
+	}
+}

@@ -1,0 +1,257 @@
+generate_dw_start_buildings_and_districts = {
+    if = {
+		limit = {
+			owner = { has_origin = origin_dyson_world }
+		}
+
+		if = {
+			limit = {
+				owner = {
+					is_lithoid_empire = yes
+					NOT = {
+						has_valid_civic = civic_hive_devouring_swarm
+					}
+				}
+			}
+			while = {
+				count = 4
+				add_deposit = d_hibernating_lithoids
+			}
+		}
+
+		if = {
+			limit = {
+				owner = { is_regular_empire = yes }
+			}
+
+			# total - 24 jobs
+
+			# 3 jobs
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_city
+			}
+
+			if = {
+				limit = {
+					owner = { NOT = { has_valid_civic = civic_agrarian_idyll } }
+				}
+				while = {
+					count = 2
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_city
+					}
+				}
+			}
+			else = {
+				while = {
+					count = 2
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_farming_uncapped
+					}
+				}
+				if = {
+					limit = {
+						owner = { has_origin = origin_payback }
+					}
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_farming_uncapped
+					}
+				}
+			}
+
+			if = {
+				limit = { owner = { is_megacorp = yes } }
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_city
+				}
+			}
+
+			# 4 - 6 jobs
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							is_lithoid_empire = no
+							has_country_flag = non_lithoid_subspecies
+						}
+					}
+				}
+				while = {
+					count = 2
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_farming_uncapped
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							has_origin = origin_default
+							is_eager_explorer_empire = no
+						}
+					}
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_farming_uncapped
+					}
+				}
+			}
+			else = {
+				while = {
+					count = 2
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_mining_uncapped
+					}
+				}
+			}
+
+			while = {
+				count = 2
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_industrial
+				}
+			}
+
+			# 4 jobs
+			while = {
+				count = 2
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_mining_uncapped
+				}
+			}
+
+			# 2 jobs
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_generator_uncapped
+			}
+
+			# 2 jobs
+			if = {
+				limit = { owner = { is_megacorp = no } }
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_generator_uncapped
+				}
+			}
+
+			# 3 jobs
+			add_building = building_capital
+
+			# 2 jobs
+			if = {
+				limit = { owner = { is_spiritualist = no } }
+				add_building = building_bureaucratic_1
+			}
+			# 2 jobs
+			if = {
+				limit = {
+					owner = {
+						is_spiritualist = yes
+						OR = {
+							has_valid_civic = civic_death_cult
+							has_valid_civic = civic_death_cult_corporate
+						}
+					}
+				}
+				add_building = building_sacrificial_temple_1
+			}
+			# 2 jobs
+			if = {
+				limit = {
+					owner = {
+						is_spiritualist = yes
+						NOT = { has_valid_civic = civic_death_cult }
+					}
+				}
+				add_building = building_temple
+			}
+
+			# 2 jobs
+			if = {
+				limit = {
+					owner = {
+						is_low_tech_start = no
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							has_valid_civic = civic_reanimated_armies
+						}
+					}
+					add_building = building_dread_encampment
+	
+					solar_system = { #Necromancers do not give engineering. So make sure there's some readily-accessible engineering
+						random_system_planet = {
+							limit = {
+								has_deposit_for = shipclass_research_station
+								has_deposit = d_engineering_5
+							}
+							# Total size 15 deposit as the Irreparable Damage is normally a size 5 and non-Shattered Ring starts get an additional two size 6 deposits.
+							add_deposit = d_engineering_10
+						}
+					}
+				}
+				else = {
+					add_building = building_research_lab_1
+				}
+			}
+
+			if = {
+				limit = {
+					owner = {
+						has_valid_civic = civic_permanent_employment
+					}
+				}
+				add_building = building_posthumous_employment_center
+			}
+			# 4-5 jobs
+			if = {
+				limit = {
+					owner = {
+						NOT = { has_valid_civic = civic_agrarian_idyll }
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							is_spiritualist = no
+							has_valid_civic = civic_pleasure_seekers
+						}
+					}
+					add_building = building_holo_theatres
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_generator_uncapped
+					}
+				}
+				else_if = {
+					limit = {
+						owner = {
+							is_spiritualist = yes
+							OR = {
+								has_valid_civic = civic_death_cult
+								has_valid_civic = civic_death_cult_corporate
+							}
+						}
+					}
+					add_building = building_sacrificial_temple_1
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_generator_uncapped
+					}
+				}
+				else_if = {
+					limit = {
+						owner = {
+							is_megacorp = no
+							is_spiritualist = yes
+						}
+					}
+					add_building = building_temple
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_generator_uncapped
+					}
+				}
+				else = {
+					add_building = building_commercial_zone
+				}
+			}
+		}
+	}
+} 

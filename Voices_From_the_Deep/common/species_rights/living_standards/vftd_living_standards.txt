@@ -1,0 +1,34 @@
+living_standard_thrall_assimilation = {
+
+	pop_modifier = {
+		pop_happiness = -0.25
+	}
+
+	potential = {
+		NOR = {
+			has_trait = trait_mechanical
+			has_trait = trait_machine_unit
+		}
+		exists = from
+		from = {
+			AND = {
+				has_origin = origin_voices_from_the_deep
+			}
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_thrall_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}

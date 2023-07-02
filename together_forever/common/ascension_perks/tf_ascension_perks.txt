@@ -1,0 +1,49 @@
+tf_ap_subspace_neural_relays = {
+	on_enabled = {
+		custom_tooltip = "subspace_neural_relays_tooltip"
+		set_country_flag = has_subspace_neural_relays
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_2"
+			num_ascension_perks > 1
+		}
+		custom_tooltip = {
+			fail_text = "requires_technology_tf_physics_tech_3"
+			has_technology = tf_society_tech_3
+		}
+        custom_tooltip = {
+			fail_text = "requires_technology_tf_society_tech_3"
+			has_technology = tf_physics_tech_3
+		}
+        custom_tooltip = {
+			fail_text = "requires_technology_tf_engineering_tech_3"
+			has_technology = tf_engineering_tech_3
+		}
+        custom_tooltip = {
+			fail_text = "requires_technology_gateway_construction"
+			has_technology = tech_gateway_construction
+		}
+        custom_tooltip = {
+			fail_text = "requires_technology_wormhole_stabilization"
+			has_technology = tech_wormhole_stabilization
+		}
+	}
+
+    potential = {
+		has_origin = origin_together_forever
+	}
+
+	ai_weight = {
+		factor = 0
+		modifier = {
+			factor = 0
+			num_owned_planets < 6
+		}
+		modifier = {
+			factor = 0
+			has_authority = auth_hive_mind
+		}
+	}
+}

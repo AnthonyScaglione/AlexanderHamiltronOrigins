@@ -1,0 +1,215 @@
+tf_recalculate_planet_bonus_modifier = {
+    if = {
+        limit = {
+            has_modifier = tf_unowned_modifier
+        }
+        remove_modifier = tf_unowned_modifier
+    }
+	switch = {
+		trigger = has_modifier
+		tf_physics_planet_modifier_3 = { remove_modifier = tf_physics_planet_modifier_3 }
+		tf_physics_planet_modifier_2 = { remove_modifier = tf_physics_planet_modifier_2 }
+		tf_physics_planet_modifier_1 = { remove_modifier = tf_physics_planet_modifier_1 }
+        tf_physics_planet_modifier_0 = { remove_modifier = tf_physics_planet_modifier_0 }
+	}
+    switch = {
+        trigger = has_modifier
+        tf_society_planet_modifier_3 = { remove_modifier = tf_society_planet_modifier_3 }
+        tf_society_planet_modifier_2 = { remove_modifier = tf_society_planet_modifier_2 }
+        tf_society_planet_modifier_1 = { remove_modifier = tf_society_planet_modifier_1 }
+        tf_society_planet_modifier_0 = { remove_modifier = tf_society_planet_modifier_0 }
+    }
+    switch = {
+        trigger = has_modifier
+        tf_engineering_planet_modifier_3 = { remove_modifier = tf_engineering_planet_modifier_3 }
+        tf_engineering_planet_modifier_2 = { remove_modifier = tf_engineering_planet_modifier_2 }
+        tf_engineering_planet_modifier_1 = { remove_modifier = tf_engineering_planet_modifier_1 }
+        tf_engineering_planet_modifier_0 = { remove_modifier = tf_engineering_planet_modifier_0 }
+    }
+    if = {
+        limit = {
+            exists = owner
+            owner = {
+                has_origin = origin_together_forever
+            }
+        }
+        if = {
+            limit = {
+                owner = {
+                    has_technology = tf_physics_tech_3
+                }
+            }
+            add_modifier = { modifier = tf_physics_planet_modifier_3 }
+        }
+        else_if = {
+            limit = {
+                owner = {
+                    has_technology = tf_physics_tech_2
+                }
+            }
+            add_modifier = { modifier = tf_physics_planet_modifier_2 }
+        }
+        else_if = {
+            limit = {
+                owner = {
+                    has_technology = tf_physics_tech_1
+                }
+            }
+            add_modifier = { modifier = tf_physics_planet_modifier_1 }
+        }
+        else = {
+            add_modifier = { modifier = tf_physics_planet_modifier_0 }
+        }
+        if = {
+            limit = {
+                owner = {
+                    has_technology = tf_society_tech_3
+                }
+            }
+            add_modifier = { modifier = tf_society_planet_modifier_3 }
+        }
+        else_if = {
+            limit = {
+                owner = {
+                    has_technology = tf_society_tech_2
+                }
+            }
+            add_modifier = { modifier = tf_society_planet_modifier_2 }
+        }
+        else_if = {
+            limit = {
+                owner = {
+                    has_technology = tf_society_tech_1
+                }
+            }
+            add_modifier = { modifier = tf_society_planet_modifier_1 }
+        }
+        else = {
+            add_modifier = { modifier = tf_society_planet_modifier_0 }
+        }
+        if = {
+            limit = {
+                owner = {
+                    has_technology = tf_engineering_tech_3
+                }
+            }
+            add_modifier = { modifier = tf_engineering_planet_modifier_3 }
+        }
+        else_if = {
+            limit = {
+                owner = {
+                    has_technology = tf_engineering_tech_2
+                }
+            }
+            add_modifier = { modifier = tf_engineering_planet_modifier_2 }
+        }
+        else_if = {
+            limit = {
+                owner = {
+                    has_technology = tf_engineering_tech_1
+                }
+            }
+            add_modifier = { modifier = tf_engineering_planet_modifier_1 }
+        }
+        else = {
+            add_modifier = { modifier = tf_engineering_planet_modifier_0 }
+        }
+    }
+    else = {
+        add_modifier = { modifier = tf_unowned_modifier }
+    }
+}
+
+generate_tf_start_buildings_and_districts = {
+    if = {
+        limit = { owner = { is_hive_empire = yes } }
+
+        # 9 jobs
+        while = {
+            count = 3
+            add_district_and_planet_size_if_needed_effect = {
+                district = district_hive
+            }
+        }
+
+        # 6-9 jobs
+        if = {
+            limit = { owner = { is_lithoid_empire = no } }
+            while = {
+                count = 2
+                add_district_and_planet_size_if_needed_effect = {
+                    district = district_farming_uncapped
+                }
+            }
+        }
+        else = {
+            while = {
+                count = 2
+                add_district_and_planet_size_if_needed_effect = {
+                    district = district_mining_uncapped
+                }
+            }
+            if = {
+                limit = {
+                    owner = {
+                        has_origin = origin_default
+                        is_eager_explorer_empire = no
+                    }
+                }
+                add_district_and_planet_size_if_needed_effect = {
+                    district = district_mining_uncapped
+                }
+            }
+        }
+
+        # 6 jobs
+        while = {
+            count = 2
+            add_district_and_planet_size_if_needed_effect = {
+                district = district_mining_uncapped
+            }
+        }
+
+        # 6 jobs
+        while = {
+            count = 2
+            add_district_and_planet_size_if_needed_effect = {
+                district = district_generator_uncapped
+            }
+        }
+
+        # 3 jobs
+        if = {
+            limit = {
+                owner = {
+                    has_origin = origin_default
+                    is_eager_explorer_empire = no
+                }
+            }
+            add_district_and_planet_size_if_needed_effect = {
+                district = district_generator
+            }
+        }
+
+        # 2 jobs
+        add_district_and_planet_size_if_needed_effect = {
+            district = district_industrial
+        }
+
+        # 5 jobs
+        add_building = building_hive_capital
+
+        # 2 jobs
+        if = {
+            limit = {
+                owner = {
+                    is_low_tech_start = no
+                }
+            }
+            add_building = building_research_lab_1
+        }
+
+        add_building = building_hive_node
+        add_building = building_spawning_pool
+    }
+} 

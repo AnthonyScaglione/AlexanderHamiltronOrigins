@@ -1,0 +1,27 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_origin_defender_of_the_sacred"
+		texturefile = "gfx/event_pictures/origins/origin_defender_of_the_sacred.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_dots_wg_holy_vassal"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_isvassal.dds"
+	}
+
+    spriteType = {
+		name = "GFX_text_holy_vassal"
+		texturefile = "gfx/interface/icons/text_icons/text_icon_holy_vassal.dds"
+	}
+
+    spriteType = {
+		name = "GFX_diplomacy_specialist_subject_holy_vassal"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_specialist_subject_holy_vassal.dds"
+	}
+
+    spriteType = {
+		name = "GFX_diplomacy_specialist_subject_holy_vassal_large"
+		texturefile = "gfx/interface/subjugation/specialists_icons/specialist_subject_holy_vassal_icon.dds"
+	}
+}

@@ -1,0 +1,51 @@
+
+@distance = 50
+@base_moon_distance = 10
+@jumps = 2
+
+#abyssal
+tf_start_init = {
+	class = "sc_hive"
+
+	usage = origin
+
+	flags = { empire_home_system }
+
+	planet = {
+        class = star
+        size = 60
+        orbit_distance = 0
+    }
+
+	planet = {
+		count = 1
+		orbit_distance = 100
+		home_planet = yes
+		class = pc_rogue_hive
+		orbit_angle = 270
+		size = 24
+		flags = { 
+			hive_homeworld
+			special_start_planet
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}	
+
+	}
+
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1_first_colony"
+	}
+}

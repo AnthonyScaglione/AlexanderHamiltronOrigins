@@ -1,0 +1,481 @@
+
+@distance = 50
+@base_moon_distance = 10
+@jumps = 2
+
+#abyssal
+tf_start_init = {
+	class = sc_a
+
+	usage = origin
+
+	flags = { empire_home_system }
+
+	planet = {
+        class = star
+        size = 20
+        orbit_distance = 0
+		orbit_angle = 0
+    }
+
+	planet = {
+        class = pc_hive_star
+        size = 100
+        orbit_distance = 0
+		orbit_angle = 36
+    }
+
+	planet = {
+		count = 1
+		orbit_distance = 70
+		home_planet = yes
+		class = pc_dyson_panel
+		orbit_angle = 252
+		size = 20
+		flags = { 
+			is_dyson_world
+			special_start_planet
+			megastructure
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}
+
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_ruined_dyson_panel
+		orbit_angle = 36
+		size = 20
+		flags = { 
+			is_dyson_world
+			megastructure
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = { modifier =  dw_total_disrepair }
+			create_ambient_object = {
+				type = "medium_debris_01_object"
+				location = THIS
+			}
+		}
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_ruined_dyson_panel
+		orbit_angle = 36
+		size = 20
+		flags = { 
+			is_dyson_world
+			megastructure
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = { modifier =  dw_total_disrepair }
+		}
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_ruined_dyson_panel
+		orbit_angle = 36
+		size = 20
+		flags = { 
+			is_dyson_world
+			megastructure
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = { modifier =  dw_total_disrepair }
+		}
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_ruined_dyson_panel
+		orbit_angle = 36
+		size = 20
+		flags = { 
+			is_dyson_world
+			megastructure
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = { modifier =  dw_total_disrepair }
+		}
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_ruined_dyson_panel
+		orbit_angle = 36
+		size = 20
+		flags = { 
+			is_dyson_world
+			megastructure
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = { modifier =  dw_total_disrepair }
+		}
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_ruined_dyson_panel
+		orbit_angle = 36
+		size = 20
+		flags = { 
+			is_dyson_world
+			megastructure
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = { modifier =  dw_total_disrepair }
+		}
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_ruined_dyson_panel
+		orbit_angle = 36
+		size = 20
+		flags = { 
+			is_dyson_world
+			megastructure
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = { modifier =  dw_total_disrepair }
+		}
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_ruined_dyson_panel
+		orbit_angle = 36
+		size = 20
+		flags = { 
+			is_dyson_world
+			megastructure
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = { modifier =  dw_total_disrepair }
+		}
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_ruined_dyson_panel
+		orbit_angle = 36
+		size = 20
+		flags = { 
+			is_dyson_world
+			megastructure
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			add_modifier = { modifier =  dw_total_disrepair }
+		}
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+
+	init_effect = {
+		while = {
+			count = 25
+			create_ambient_object = {
+				type = "large_debris_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = solar_system
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 80
+					angle = random
+				}
+			}
+		}
+		while = {
+			count = 25
+			create_ambient_object = {
+				type = "large_debris_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = solar_system
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 95
+					angle = random
+				}
+			}
+		}
+		while = {
+			count = 25
+			create_ambient_object = {
+				type = "medium_debris_01_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = solar_system
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 110
+					angle = random
+				}
+			}
+		}
+		while = {
+			count = 15
+			create_ambient_object = {
+				type = "small_debris_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = solar_system
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 117
+					angle = random
+				}
+			}
+		}
+		while = {
+			count = 10
+			create_ambient_object = {
+				type = "small_debris_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = solar_system
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 125
+					angle = random
+				}
+			}
+		}
+	}
+
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t2_second_colony_dyson_world"
+	}
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1_first_colony_dyson_world"
+	}
+}
+
+# Neighbor Tier 1 First Colony
+neighbor_t1_first_colony_dyson_world = {
+	class = "rl_standard_stars"
+	flags = { neighbor_t1_first_colony }
+
+	init_effect = {
+		every_neighbor_system = { set_star_flag = empire_cluster }
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 45
+
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 20
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+
+	planet = {
+		count = 1
+		orbit_distance = 25
+		class = pc_tropical
+		modifiers = none
+		anomaly = none
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 14 max = 20 }
+
+		init_effect = {
+			set_planet_flag = prescripted_ideal		# used by code, do not remove
+			prevent_anomaly = yes
+		}
+	}
+
+	planet = {
+		count = { min = 2 max = 5 }
+		orbit_distance = 25
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+
+	neighbor_system = {
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t2"
+	}
+}
+
+# Neighbor Tier 2 Second Colony
+neighbor_t2_second_colony_dyson_world = {
+	class = "rl_standard_stars"
+	flags = { neighbor_t2_second_colony }
+
+	init_effect = {
+		every_neighbor_system = { set_star_flag = empire_cluster }
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 25
+
+	planet = {
+		count = 2
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+	}
+
+	planet = {
+		count = 1
+		orbit_distance = 25
+		class = pc_tropical
+		modifiers = none
+		anomaly = none
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 12 max = 18 }
+
+		init_effect = {
+			set_planet_flag = prescripted_ideal		# used by code, do not remove
+			prevent_anomaly = yes
+		}
+	}
+
+	planet = {
+		count = 2
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 1 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+	}
+}

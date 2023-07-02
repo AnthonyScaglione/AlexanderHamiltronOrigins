@@ -1,0 +1,71 @@
+tf_unowned_modifier = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_unowned_modifier.dds"
+	icon_frame = 99
+}
+tf_physics_planet_modifier_3 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_physics_modifier_3.dds"
+	icon_frame = 99
+	planet_jobs_specialist_produces_mult = 0.2
+	planet_sensor_range_add = 3
+}
+tf_physics_planet_modifier_2 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_physics_modifier_2.dds"
+	icon_frame = 99
+	planet_jobs_specialist_produces_mult = 0.15
+	planet_sensor_range_add = 2
+}	
+tf_physics_planet_modifier_1 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_physics_modifier_1.dds"
+	icon_frame = 99
+	planet_jobs_specialist_produces_mult = 0.1
+	planet_sensor_range_add = 1
+}	
+tf_physics_planet_modifier_0 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_physics_modifier_0.dds"
+	icon_frame = 99
+	planet_jobs_specialist_produces_mult = 0.05
+}	
+tf_society_planet_modifier_3 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_society_modifier_3.dds"
+	icon_frame = 99
+	planet_pop_assembly_organic_mult = 0.2
+}
+tf_society_planet_modifier_2 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_society_modifier_2.dds"
+	icon_frame = 99
+	planet_pop_assembly_organic_mult = 0.15
+}	
+tf_society_planet_modifier_1 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_society_modifier_1.dds"
+	icon_frame = 99
+	planet_pop_assembly_organic_mult = 0.1
+}	
+tf_society_planet_modifier_0 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_society_modifier_0.dds"
+	icon_frame = 99
+	planet_pop_assembly_organic_mult = 0.05
+}	
+tf_engineering_planet_modifier_3 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_engineering_modifier_3.dds"
+	icon_frame = 99
+	planet_jobs_worker_produces_mult = 0.2
+	planet_building_build_speed_mult = 0.2
+}
+tf_engineering_planet_modifier_2 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_engineering_modifier_2.dds"
+	icon_frame = 99
+	planet_jobs_worker_produces_mult = 0.15
+	planet_building_build_speed_mult = 0.15
+}	
+tf_engineering_planet_modifier_1 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_engineering_modifier_1.dds"
+	icon_frame = 99
+	planet_jobs_worker_produces_mult = 0.1
+	planet_building_build_speed_mult = 0.1
+}	
+tf_engineering_planet_modifier_0 = {	
+	icon = "gfx/interface/icons/planet_modifiers/tf_engineering_modifier_0.dds"
+	icon_frame = 99
+	planet_jobs_worker_produces_mult = 0.05
+	planet_building_build_speed_mult = 0.05
+}	

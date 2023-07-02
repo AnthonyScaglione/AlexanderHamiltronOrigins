@@ -1,0 +1,277 @@
+######################
+# bulwark SPECIALIST #
+######################
+
+holy_vassal_1_modifier = {
+	main_perk = yes
+	subject_modifier = {
+		country_unity_produces_mult = 0.2
+        pop_ethic_spiritualist_attraction_mult = 0.25
+		starbase_defense_platform_capacity_add = 2
+		shipclass_starbase_damage_mult = 0.5
+		shipclass_starbase_hull_mult = 0.5
+		ship_shield_hardening_add = 0.05
+		ship_armor_hardening_add = 0.05
+	}
+
+	# For setting the room background
+	activate_effect = {
+		target = {
+			store_country_backup_data = {
+				flag = no
+				room = yesark
+				name = no
+				ethics = no
+				government = no
+			}
+			room_name_override = ""
+		}
+	}
+
+	# Restore room background back to normal
+	deactivate_effect = {
+		target = {
+			restore_country_backup_data = yes
+		}
+	}
+}
+
+holy_vassal_1_penalties = {
+	main_perk = yes
+	subject_modifier = {
+		country_energy_produces_mult = -0.2
+		country_minerals_produces_mult = -0.2
+		country_food_produces_mult = -0.2
+	}
+}
+
+holy_vassal_1_overlord_modifier = {
+	icon = "GFX_specialist_perk_bulwark_1_overlord_modifier"
+	overlord_modifier = {
+		country_unity_produces_mult = 0.15
+		weapon_archaeotech_weapon_damage_mult = 0.10
+	}
+}
+
+holy_vassal_1_neighbor_bonuses = {
+	icon = "GFX_specialist_perk_bulwark_1_neighbor_bonuses"
+
+	overlord_relay_network_modifier = {
+		specialist_holy_vassal_neighbor = 1
+	}
+
+	desc = {
+		description = holy_vassal_1_neighbor_bonuses_desc
+	}
+}
+
+holy_vassal_1_holy_vassal_array = {
+	icon = "GFX_specialist_perk_bulwark_1_bulwark_array"
+	activate_effect = {
+		target = {
+			every_owned_starbase = {
+				limit = { is_orbital_ring = no }
+				add_bulwark_array = yes
+			}
+		}
+	}
+
+	deactivate_effect = {
+		target = {
+			every_owned_starbase = {
+				remove_bulwark_array = yes
+			}
+		}
+	}
+
+	desc = {
+		description = bulwark_1_bulwark_array_desc
+	}
+}
+
+holy_vassal_1_holy_vassal_insight = {
+	icon = "GFX_specialist_perk_bulwark_1_bulwark_insight"
+	activate_effect = {
+		target = {
+			if = {
+				limit = { NOT = { has_technology = tech_archaeostudies } }
+				give_technology = {
+					tech = tech_archaeostudies
+					message = yes
+				}
+			}
+			append_technology = { TECH = archaeoarmor }
+			append_technology = { TECH = archaeoshield }
+		}
+	}
+
+	desc = {
+		description = holy_vassal_1_holy_vassal_insight_desc
+	}
+}
+
+holy_vassal_2_modifier = {
+	main_perk = yes
+	subject_modifier = {
+		country_unity_produces_mult = 0.35
+        pop_ethic_spiritualist_attraction_mult = 0.5
+		starbase_defense_platform_capacity_add = 5
+		shipclass_starbase_damage_mult = 0.5
+		shipclass_starbase_hull_mult = 0.5
+		ship_shield_hardening_add = 0.15
+		ship_armor_hardening_add = 0.15
+	}
+}
+
+holy_vassal_2_penalties = {
+	main_perk = yes
+	subject_modifier = {
+		country_energy_produces_mult = -0.30
+		country_minerals_produces_mult = -0.30
+		country_food_produces_mult = -0.30
+	}
+}
+
+holy_vassal_2_holy_vassal_insight = {
+	icon = "GFX_specialist_perk_bulwark_2_bulwark_insight"
+	activate_effect = {
+		target = {
+			append_technology = { TECH = archaeo_overcharger }
+			append_technology = { TECH = archaeo_refinery }
+		}
+	}
+
+	desc = {
+		description = holy_vassal_2_holy_vassal_insight_desc
+	}
+}
+
+holy_vassal_2_leaders = {
+	icon = "GFX_specialist_perk_bulwark_2_leaders"
+	subject_modifier = {
+		admiral_exp_gain = 0.2
+	}
+
+	activate_effect = {
+		target = {
+			add_specialist_leaders = {
+				TYPE = bulwark
+				CLASS = admiral
+			}
+		}
+	}
+
+	deactivate_effect = {
+		target = {
+			remove_specialist_leaders = {
+				TYPE = bulwark
+				CLASS = admiral
+			}
+		}
+	}
+
+	desc = {
+		description = holy_vassal_2_leaders_desc
+	}
+}
+
+holy_vassal_2_traits = {
+	icon = "GFX_specialist_perk_bulwark_2_traits"
+	desc = {
+		description = holy_vassal_2_traits_desc
+	}
+}
+
+holy_vassal_3_modifier = {
+	main_perk = yes
+	subject_modifier = {
+		country_unity_produces_mult = 0.5
+        pop_ethic_spiritualist_attraction_mult = 0.75
+		starbase_defense_platform_capacity_add = 8
+		shipclass_starbase_damage_mult = 0.75
+		shipclass_starbase_hull_mult = 0.75
+		ship_shield_hardening_add = 0.25
+		ship_armor_hardening_add = 0.25
+	}
+}
+
+holy_vassal_3_penalties = {
+	main_perk = yes
+	subject_modifier = {
+		country_energy_produces_mult = -0.4
+		country_minerals_produces_mult = -0.4
+		country_food_produces_mult = -0.4
+	}
+}
+
+holy_vassal_3_holy_vassal_insight = {
+	icon = "GFX_specialist_perk_bulwark_3_bulwark_insight"
+	activate_effect = {
+		target = {
+            append_technology = { TECH = archaeo_titan_beam }
+			append_technology = { TECH = archaeo_pk_devolving_beam }
+		}
+	}
+
+	desc = {
+		description = holy_vassal_3_holy_vassal_insight_desc
+	}
+}
+
+holy_vassal_3_battlewright = {
+	icon = "GFX_specialist_perk_bulwark_3_battlewright"
+	activate_effect = {
+		target = {
+			create_ship_design = { design = "NAME_bulwark_Battlewright" }
+			last_created_design = {
+				set_design_flag = bulwark_battlewright
+			}
+			add_ship_design = last_created_design
+		}
+	}
+
+	deactivate_effect = {
+		target = {
+			every_owned_design = {
+				limit = { has_design_flag = bulwark_battlewright }
+				save_event_target_as = remove_this_design
+			}
+			remove_ship_design = event_target:remove_this_design
+		}
+	}
+
+	desc = {
+		description = holy_vassal_3_battlewright_desc
+	}
+}
+
+holy_vassal_3_disintegrator_field = {
+	icon = "GFX_specialist_perk_bulwark_3_disintegrator_field"
+	activate_effect = {
+		target = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = finished_unyielding_tree }
+					has_tradition = tr_unyielding_finish
+				}
+				set_country_flag = finished_unyielding_tree
+			}
+			every_owned_starbase = {
+				limit = { is_orbital_ring = no }
+				add_disintegrator_field = yes
+			}
+		}
+	}
+
+	deactivate_effect = {
+		target = {
+			every_owned_starbase = {
+				remove_disintegrator_field = yes
+			}
+		}
+	}
+
+	desc = {
+		description = bulwark_3_disintegrator_field_desc
+	}
+}

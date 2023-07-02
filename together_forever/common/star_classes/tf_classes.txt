@@ -1,0 +1,6 @@
+sc_hive = {
+	class			= ship_designer
+	planet			= { key = pc_hive_star }
+	spawn_odds		= 0
+	num_planets	= { min = 0 max = 1 }
+}

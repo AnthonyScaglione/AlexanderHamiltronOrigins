@@ -1,0 +1,3 @@
+planet_overlord_crusader = {
+	parent = holdings_jobs
+}

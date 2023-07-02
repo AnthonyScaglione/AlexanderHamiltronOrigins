@@ -1,0 +1,347 @@
+tf_physics_tech_1 = {
+	cost = @tier2cost2
+	area = physics
+	tier = 2
+    is_rare = yes
+	category = { field_manipulation }
+
+	weight = @tier2weight1
+
+	prereqfor_desc = {
+		ship = {
+			title = "TF_PHYSICS_TECH_1_TITLE"
+		}
+	}
+
+	potential = {
+        has_origin = origin_together_forever
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2.5
+			has_origin = origin_together_forever
+		}
+        modifier = {
+            factor = @ap_technological_ascendancy_rare_tech
+            has_ascension_perk = ap_technological_ascendancy
+        }
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			factor = 0
+		}
+	}
+}
+
+tf_physics_tech_2 = {
+	cost = @tier3cost2
+	area = physics
+	tier = 3
+    is_rare = yes
+	category = { field_manipulation }
+    prerequisites = { "tf_physics_tech_1" }
+
+	weight = @tier3weight1
+
+	prereqfor_desc = {
+		ship = {
+			title = "TF_PHYSICS_TECH_2_TITLE"
+		}
+	}
+
+	potential = {
+        has_origin = origin_together_forever
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2.5
+			has_origin = origin_together_forever
+		}
+        modifier = {
+            factor = @ap_technological_ascendancy_rare_tech
+            has_ascension_perk = ap_technological_ascendancy
+        }
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			factor = 0
+		}
+	}
+}
+
+tf_physics_tech_3 = {
+	cost = @tier4cost3
+	area = physics
+	tier = 4
+    is_rare = yes
+	category = { field_manipulation }
+    prerequisites = { "tf_physics_tech_2" }
+
+	weight = @tier3weight1
+
+	prereqfor_desc = {
+		ship = {
+			title = "TF_PHYSICS_TECH_3_TITLE"
+		}
+	}
+
+	potential = {
+        has_origin = origin_together_forever
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2.5
+			has_origin = origin_together_forever
+		}
+        modifier = {
+            factor = @ap_technological_ascendancy_rare_tech
+            has_ascension_perk = ap_technological_ascendancy
+        }
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			factor = 0
+		}
+	}
+}
+
+tf_society_tech_1 = {
+	cost = @tier2cost2
+	area = society
+	tier = 2
+    is_rare = yes
+	category = { biology }
+
+	weight = @tier2weight1
+
+	prereqfor_desc = {
+		ship = {
+			title = "TF_SOCIETY_TECH_1_TITLE"
+		}
+	}
+
+	potential = {
+        has_origin = origin_together_forever
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2.5
+			has_origin = origin_together_forever
+		}
+        modifier = {
+            factor = @ap_technological_ascendancy_rare_tech
+            has_ascension_perk = ap_technological_ascendancy
+        }
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			factor = 0
+		}
+	}
+}
+
+tf_society_tech_2 = {
+	cost = @tier3cost2
+	area = society
+	tier = 3
+    is_rare = yes
+	category = { biology }
+    prerequisites = { "tf_society_tech_1" }
+
+	weight = @tier3weight1
+
+	prereqfor_desc = {
+		ship = {
+			title = "TF_SOCIETY_TECH_2_TITLE"
+		}
+	}
+
+	potential = {
+        has_origin = origin_together_forever
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2.5
+			has_origin = origin_together_forever
+		}
+        modifier = {
+            factor = @ap_technological_ascendancy_rare_tech
+            has_ascension_perk = ap_technological_ascendancy
+        }
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			factor = 0
+		}
+	}
+}
+
+tf_society_tech_3 = {
+	cost = @tier4cost3
+	area = society
+	tier = 4
+    is_rare = yes
+	category = { biology }
+    prerequisites = { "tf_society_tech_2" }
+
+	weight = @tier3weight1
+
+	prereqfor_desc = {
+		ship = {
+			title = "TF_SOCIETY_TECH_3_TITLE"
+		}
+	}
+
+	potential = {
+        has_origin = origin_together_forever
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2.5
+			has_origin = origin_together_forever
+		}
+        modifier = {
+            factor = @ap_technological_ascendancy_rare_tech
+            has_ascension_perk = ap_technological_ascendancy
+        }
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			factor = 0
+		}
+	}
+}
+
+tf_engineering_tech_1 = {
+	cost = @tier2cost2
+	area = engineering
+	tier = 2
+    is_rare = yes
+	category = { industry }
+
+	weight = @tier2weight1
+
+	prereqfor_desc = {
+		ship = {
+			title = "TF_ENGINEERING_TECH_1_TITLE"
+		}
+	}
+
+	potential = {
+        has_origin = origin_together_forever
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2.5
+			has_origin = origin_together_forever
+		}
+        modifier = {
+            factor = @ap_technological_ascendancy_rare_tech
+            has_ascension_perk = ap_technological_ascendancy
+        }
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			factor = 0
+		}
+	}
+}
+
+tf_engineering_tech_2 = {
+	cost = @tier3cost2
+	area = engineering
+	tier = 3
+    is_rare = yes
+	category = { industry }
+    prerequisites = { "tf_engineering_tech_1" }
+
+	weight = @tier3weight1
+
+	prereqfor_desc = {
+		ship = {
+			title = "TF_ENGINEERING_TECH_2_TITLE"
+		}
+	}
+
+	potential = {
+        has_origin = origin_together_forever
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2.5
+			has_origin = origin_together_forever
+		}
+        modifier = {
+            factor = @ap_technological_ascendancy_rare_tech
+            has_ascension_perk = ap_technological_ascendancy
+        }
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			factor = 0
+		}
+	}
+}
+
+tf_engineering_tech_3 = {
+	cost = @tier4cost3
+	area = engineering
+	tier = 4
+    is_rare = yes
+	category = { industry }
+    prerequisites = { "tf_engineering_tech_2" }
+
+	weight = @tier3weight1
+
+	prereqfor_desc = {
+		ship = {
+			title = "TF_ENGINEERING_TECH_3_TITLE"
+		}
+	}
+
+	potential = {
+        has_origin = origin_together_forever
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 2.5
+			has_origin = origin_together_forever
+		}
+        modifier = {
+            factor = @ap_technological_ascendancy_rare_tech
+            has_ascension_perk = ap_technological_ascendancy
+        }
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			factor = 0
+		}
+	}
+}

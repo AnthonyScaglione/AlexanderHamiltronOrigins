@@ -1,0 +1,254 @@
+generate_thrall_treats = {
+	add_monthly_resource_mult = {
+		resource = unity
+		value = 1
+		min = 10
+		max = 200 
+	}
+	add_monthly_resource_mult = {
+		resource = society_research
+		value = 1
+		min = 10
+		max = 200
+	}
+	change_variable = {
+		which = num_assimilated_pops
+		value = 1
+	}
+}
+
+# root/this = planet
+thrall_assimilation_effect = {
+	random_owned_pop = {
+		limit = {
+			has_citizenship_type = {
+				type = citizenship_thrall_assimilation
+				country = root.owner
+			}
+		}
+		if = {
+			limit = {
+				root.owner = {
+					has_origin = origin_voices_from_the_deep
+				}
+			}
+			random_galaxy_species = {
+				limit = {
+					has_species_flag = assimilation_species_of_species@prev.species
+					has_species_flag = assimilation_species_of_empire@root.owner
+				}
+				save_event_target_as = convert_to_species
+			}
+			species = {
+				save_event_target_as = old_species
+			}
+			if = {
+				limit = {
+					exists = event_target:convert_to_species #should always exist
+				}
+				change_species = event_target:convert_to_species
+				owner = {
+					if = {
+						limit = { has_ascension_perk = ap_become_the_crisis }
+						complete_crisis_objective = crisobj_purge_pops
+					}
+				}
+				root = {
+					change_variable = {
+						which = assimilation_counter
+						value = -1
+					}
+					while = { #to avoid doing the random_galaxy_species thing too many times
+						limit = {
+							exists = event_target:old_species
+							check_variable = {
+								which = assimilation_counter
+								value > 0
+							}
+							any_owned_pop = {
+								is_same_value = event_target:old_species
+							}
+						}
+						random_owned_pop = {
+							limit = {
+								is_exact_same_species = event_target:old_species
+							}
+							change_species = event_target:convert_to_species
+							apply_post_thrall_assimilation_effects = yes
+						}
+						change_variable = {
+							which = assimilation_counter
+							value = -1
+						}
+						owner = {
+							if = {
+								limit = { has_ascension_perk = ap_become_the_crisis }
+								complete_crisis_objective = crisobj_purge_pops
+							}
+						}
+					}
+				}
+				apply_post_thrall_assimilation_effects = yes
+			}
+			else = {
+				log_error = "No species found for \\[This.Species.GetName] pop owned by \\[This.Owner.GetName] on \\[This.Planet.GetName] to assimilate to"
+			}
+		}
+	}
+}
+
+# pop scope, root = planet
+apply_post_thrall_assimilation_effects = {
+	if = { # assimilator empire
+		limit = {
+			root.owner = {
+				has_origin = origin_voices_from_the_deep
+			}
+		}
+		root.owner = { generate_thrall_treats = yes } # scripted effect
+	}
+	else_if = {
+		limit = {
+			root.owner = {
+				has_authority = auth_machine_intelligence
+				has_civic = civic_machine_assimilator
+				has_tradition = tr_cybernetics_assimilator_adopt
+			}
+		}
+		root.owner = { generate_cyborg_extra_treats = yes } # scripted effect
+	}
+	if = {
+		limit = {
+			NOT = {
+				owner = {
+					any_owned_pop = {
+						is_exact_same_species = event_target:convert_to_species
+						NOT = { is_same_value = prevprev }
+					}
+				}
+			}
+		}
+		if = { # set citizenship
+			limit = { root.owner = { has_authority = auth_machine_intelligence } }
+			set_citizenship_type = {
+				type = citizenship_full_machine
+				country = root.owner
+			}
+		}
+		else = {
+			set_citizenship_type = {
+				type = citizenship_full
+				country = root.owner
+			}
+		}
+
+		if = { # set citizenship
+			limit = { root.owner = { has_ethic = ethic_gestalt_consciousness } }
+			set_living_standard = {
+				type = living_standard_hive_mind
+				country = root.owner
+			}
+		}
+	}
+}
+
+generate_vftd_start_deposits_and_blockers = {
+	clear_deposits = yes
+	
+	# 2 Jobs
+	if = {
+		limit = {
+			owner = {
+				has_valid_civic = civic_environmentalist
+			}
+		}
+		add_blocker = { type = d_big_nature_preserve_blocker }
+	}
+
+	# blockers
+	if = {
+		limit = {
+			owner = {
+				is_lithoid_empire = yes
+				NOR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_origin = origin_lithoid
+					has_origin = origin_broken_shackles
+				}
+			}
+		}
+		while = {
+			count = 4
+			add_deposit = d_hibernating_lithoids
+		}
+	}
+
+	if = {
+		limit = {
+			owner = {
+				is_lithoid_empire = yes
+				has_valid_civic = civic_hive_devouring_swarm
+			}
+		}
+		while = {
+			count = 2
+			add_deposit = d_hibernating_lithoids
+		}
+	}
+	
+	if = {
+		limit = {
+			is_planet_class = pc_abyssal
+		}
+		
+		# 3 + 3 energy		
+		add_deposit = d_hot_springs			
+		add_deposit = d_rushing_waterfalls
+		add_deposit = d_rushing_waterfalls
+		add_deposit = d_underwater_vents
+		random_list = {
+			33 = {
+				add_deposit = d_hot_springs
+			}
+			33 = {
+				add_deposit = d_rushing_waterfalls
+			}
+			33 = {
+				add_deposit = d_underwater_vents
+			}
+		}
+		
+		# 3 + 3 mining
+		add_deposit = d_mineral_fields			
+		add_deposit = d_ore_rich_caverns
+		add_deposit = d_ore_rich_caverns
+		add_deposit = d_submerged_ore_veins
+		random_list = {
+			33 = {
+				add_deposit = d_mineral_fields
+			}
+			33 = {
+				add_deposit = d_ore_rich_caverns
+			}
+			33 = {
+				add_deposit = d_submerged_ore_veins
+			}
+		}
+		
+		# 4 + 3 farming
+		add_deposit = d_green_hills	
+		add_deposit = d_lush_jungle
+		add_deposit = d_tropical_island
+		random_list = {
+			33 = {
+				add_deposit = d_green_hills
+			}
+			33 = {
+				add_deposit = d_lush_jungle
+			}
+			33 = {
+				add_deposit = d_tropical_island
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+origin_dyson_world = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_dyson_world.dds"
+	picture = GFX_origin_dyson_world
+	description = "origin_dyson_world_effects"
+	starting_colony = pc_dyson_panel
+	habitability_preference = pc_dyson_panel
+	max_once_global = yes
+	random_weight = { base = 1 }
+	initializers = { tf_start_init }
+	possible = { 
+		ethics = {
+			value = ethic_fanatic_xenophobe
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_barbaric_despoilers
+			}
+		}
+	}
+	#flags = { custom_start_screen }
+	#advanced_start = yes
+}

@@ -1,0 +1,50 @@
+@level_2_xp_cost = 1200 # 10 years at 100 Loyalty.
+@level_3_xp_cost = 3600 # 30 years at 100 Loyalty.
+
+@specialist_base_conversion_time = 30
+
+specialist_holy_vassal = {
+	icon = "GFX_diplomacy_specialist_subject_holy_vassal"
+	icon_large = "GFX_diplomacy_specialist_subject_holy_vassal_large"
+	preferred_ethic = ethic_spiritualist
+	base_conversion_time = @specialist_base_conversion_time
+
+	on_progress_complete = {
+	}
+
+	levels = {
+		# Level 1
+		{
+			experience_needed_for_next_level = @level_2_xp_cost
+			perks = {
+				holy_vassal_1_modifier
+				holy_vassal_1_penalties
+				holy_vassal_1_holy_vassal_insight
+				holy_vassal_1_overlord_modifier
+				holy_vassal_1_neighbor_bonuses
+				holy_vassal_1_holy_vassal_array
+			}
+		}
+		# Level 2
+		{
+			experience_needed_for_next_level = @level_3_xp_cost
+			perks = {
+				holy_vassal_2_modifier
+				holy_vassal_2_penalties
+				holy_vassal_2_holy_vassal_insight
+				holy_vassal_2_traits
+				holy_vassal_2_leaders
+			}
+		}
+		# Level 3
+		{
+			perks = {
+				holy_vassal_3_modifier
+				holy_vassal_3_penalties
+				holy_vassal_3_holy_vassal_insight
+				holy_vassal_3_battlewright
+				holy_vassal_3_disintegrator_field
+			}
+		}
+	}
+}

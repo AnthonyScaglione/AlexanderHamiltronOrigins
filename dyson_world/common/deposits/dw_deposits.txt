@@ -1,0 +1,19 @@
+dw_makeshift_life_support = {
+	is_for_colonizable = yes
+	use_for_min_max_adjustments = yes
+
+	category = deposit_cat_rare
+
+    resources = {
+		category = planet_deposits
+		produces = {
+            energy = 10
+			alloys = 5
+            food = 5
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

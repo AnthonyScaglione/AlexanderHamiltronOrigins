@@ -1,0 +1,16 @@
+pd_abyssal = {	
+	district_generator_max = 2
+	district_farming_max = 2
+	planet_housing_mult = 0.15
+	planet_buildings_cost_mult = 0.1
+	planet_districts_cost_mult = 0.1
+	icon = "gfx/interface/icons/planet_modifiers/pm_abyssal.dds"
+	icon_frame = 1
+}
+
+
+abyssal_terraforming_candidate = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 1
+	important = yes			# if present on a planet, show the planet's nameplate
+}

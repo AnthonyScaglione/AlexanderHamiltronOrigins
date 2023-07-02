@@ -1,0 +1,322 @@
+namespace = dots_event
+
+country_event = {
+    id = dots_event.1
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_origin = origin_defender_of_the_sacred
+    }
+
+    immediate = {
+        while = {
+            count = 1
+            random_galaxy_planet = {
+                limit = {
+                    AND = {
+                        is_capital = no
+                        is_colonizable = yes
+                        NOT = {
+                            has_planet_flag = is_dots_holy_world
+                        }
+                        distance = {
+                            source = root.capital_scope
+                            use_bypasses = no
+                            min_jumps = 0
+                            max_jumps = 2
+                        }
+                    }
+                }
+                add_modifier = { modifier = dots_holy_world days = -1 }
+                set_planet_flag = is_dots_holy_world
+            }
+        }
+        while = {
+            count = 1
+            random_galaxy_planet = {
+                limit = {
+                    AND = {
+                        is_capital = no
+                        is_colonizable = yes
+                        NOT = {
+                            has_planet_flag = is_dots_holy_world
+                        }
+                        distance = {
+                            source = root.capital_scope
+                            use_bypasses = no
+                            min_jumps = 4
+                            max_jumps = 6
+                        }
+                    }
+                }
+                add_modifier = { modifier = dots_holy_world days = -1 }
+                set_planet_flag = is_dots_holy_world
+            }
+        }
+        while = {
+            count = 3
+            random_galaxy_planet = {
+                limit = {
+                    AND = {
+                        is_capital = no
+                        is_colonizable = yes
+                        NOT = {
+                            has_planet_flag = is_dots_holy_world
+                        }
+                        distance = {
+                            source = root.capital_scope
+                            use_bypasses = no
+                            min_jumps = 7
+                            max_jumps = 10
+                        }
+                    }
+                }
+                add_modifier = { modifier = dots_holy_world days = -1 }
+                set_planet_flag = is_dots_holy_world
+            }
+        }
+        while = {
+            count = 4
+            random_galaxy_planet = {
+                limit = {
+                    AND = {
+                        is_capital = no
+                        is_colonizable = yes
+                        NOT = {
+                            has_planet_flag = is_dots_holy_world
+                        }
+                        distance = {
+                            source = root.capital_scope
+                            use_bypasses = no
+                            min_jumps = 11
+                            max_jumps = 15
+                        }
+                    }
+                }
+                add_modifier = { modifier = dots_holy_world days = -1 }
+                set_planet_flag = is_dots_holy_world
+            }
+        }
+        while = {
+            count = 6
+            random_galaxy_planet = {
+                limit = {
+                    AND = {
+                        is_capital = no
+                        is_colonizable = yes
+                        NOT = {
+                            has_planet_flag = is_dots_holy_world
+                        }
+                        distance = {
+                            source = root.capital_scope
+                            use_bypasses = no
+                            min_jumps = 15
+                            max_jumps = 25
+                        }
+                    }
+                }
+                add_modifier = { modifier = dots_holy_world days = -1 }
+                set_planet_flag = is_dots_holy_world
+            }
+        }
+    }
+}
+
+country_event = {
+    id = dots_event.2
+    title = dots_event.2.name
+    desc = dots_event.2.desc
+    picture = GFX_evt_robot_assembly_plant
+    show_sound = event_mystic_reveal
+    is_triggered_only = yes
+    trackable = yes
+    location = from
+
+    trigger = {
+        has_origin = origin_defender_of_the_sacred
+        from = {
+            any_system_planet = {
+                has_planet_flag = is_dots_holy_world
+            }
+        }
+        
+    }
+
+    immediate = {
+        from = {
+            set_planet_flag = known_by_dots_empire
+            every_system_planet = {
+            limit = {
+                has_planet_flag = is_dots_holy_world
+            }
+            enable_special_project = {
+                name = "FOLLOW_PILGRIM_TRAIL"
+                location = this
+                owner = root
+            }
+        }
+        }
+        create_point_of_interest = {
+			id = dots_poi.1
+			name = "dots_poi_1_poi"
+			desc = "dots_poi_1_poi_desc"
+            event_chain = "dots_holy_world_chain"
+			location = from
+		}
+    }
+
+    option = {
+ 		name = dots_event.2.a
+ 	}
+}
+
+planet_event = {
+    id = dots_event.3
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_planet_flag = is_dots_holy_world
+    }
+
+    immediate = {
+        owner = {
+            set_country_flag = owns_dots_holy_world
+        }
+    }
+}
+
+planet_event = {
+    id = dots_event.4
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_planet_flag = is_dots_holy_world
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                exists = fromfrom
+            }
+            fromfrom = {
+                remove_country_flag = owns_dots_holy_world
+            }
+        }
+        from = {
+            set_country_flag = owns_dots_holy_world
+        }
+    }
+}
+
+
+planet_event = {
+    id = dots_event.5
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_planet_flag = is_dots_holy_world
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                exists = fromfrom
+            }
+            fromfrom = {
+                remove_country_flag = owns_dots_holy_world
+            }
+        }
+    }
+}
+
+event = {
+    id = dots_event.6
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        any_country = {
+            has_origin = origin_defender_of_the_sacred
+        }
+    }
+
+    immediate = {
+        every_country = {
+            limit = {
+                any_system_within_border = {
+                    any_system_planet = {
+                        has_planet_flag = is_dots_holy_world
+                    }
+                }
+            }
+            set_country_flag = owns_dots_holy_world
+        }
+        every_country = {
+            limit = {
+                every_system_within_border = {
+                    every_system_planet = {
+                        NOT = {
+                            has_planet_flag = is_dots_holy_world
+                        }
+                    }
+                }
+                has_country_flag = owns_dots_holy_world
+            }
+            remove_country_flag = owns_dots_holy_world
+        }
+    }
+}
+
+ship_event = {
+    id = dots_event.7
+    title = dots_event.7.name
+    desc = dots_event.7.desc
+    picture = GFX_evt_robot_assembly_plant
+    show_sound = event_mystic_reveal
+    is_triggered_only = yes
+    location = FROMFROMFROM
+
+    immediate = {
+        owner.capital_scope = {
+            closest_system = {
+                limit = {
+                    any_system_planet = {
+                        has_planet_flag = is_dots_holy_world
+                        NOT = {
+                            has_planet_flag = known_by_dots_empire
+                        }
+                    }
+                }
+                every_system_planet = {
+                    limit = {
+                        has_planet_flag = is_dots_holy_world
+                        NOT = {
+                            has_planet_flag = known_by_dots_empire
+                        }
+                    }
+                    set_planet_flag = known_by_dots_empire
+                    create_point_of_interest = {
+                        id = dots_poi.1
+                        name = "dots_poi_1_poi"
+                        desc = "dots_poi_1_poi_desc"
+                        event_chain = "dots_holy_world_chain"
+                        location = this
+                    }
+                    enable_special_project = {
+                        name = "FOLLOW_PILGRIM_TRAIL"
+                        location = this
+                        owner = root
+                    }
+                }  
+            }
+        }
+    }
+
+    option = {
+ 		name = dots_event.7.a
+ 	}
+}

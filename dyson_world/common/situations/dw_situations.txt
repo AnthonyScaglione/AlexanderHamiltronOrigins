@@ -1,0 +1,192 @@
+dw_situation_restore_world = {
+	picture = GFX_evt_dyson_sphere
+	complete_icon_frame = GFX_situation_outcome_frame_green
+	complete_icon = GFX_situation_outcome_positive
+	on_progress_complete = {
+		custom_tooltip = dw_situation_approach_outcome
+		owner = {
+			add_research_option = tech_mega_engineering
+			add_modifier = {
+				modifier = dw_empire_wide_celebration
+				days = 7300
+			}
+		}
+		
+		hidden_effect = {
+			owner = {
+				country_event = { id = dw_event.5}
+			}
+            destroy_situation = this
+		}
+	}
+	stages = {
+		stage_1 = {
+			icon = GFX_situation_stage_1
+			icon_background = GFX_situation_stage_frame_blue
+			end = 10
+			custom_tooltip = restore_world_stage_effects
+		}
+		stage_2 = {
+			icon = GFX_situation_stage_2
+			icon_background = GFX_situation_stage_frame_blue
+			end = 20
+			on_first_enter = {
+				situation_event = { id = dw_event.2 }
+			}
+			custom_tooltip = restore_world_stage_effects
+		}
+		stage_3 = {
+			icon = GFX_situation_stage_3
+			icon_background = GFX_situation_stage_frame_blue
+			end = 30
+			on_first_enter = {
+				situation_event = { id = dw_event.2 }
+			}
+			custom_tooltip = restore_world_stage_effects
+		}
+        stage_4 = {
+			icon = GFX_situation_stage_4
+			icon_background = GFX_situation_stage_frame_blue
+			end = 40
+			on_first_enter = {
+				situation_event = { id = dw_event.2 }
+			}
+			custom_tooltip = restore_world_stage_effects
+		}
+        stage_5 = {
+			icon = GFX_situation_stage_5
+			icon_background = GFX_situation_stage_frame_blue
+			end = 50
+			on_first_enter = {
+				situation_event = { id = dw_event.2 }
+			}
+			custom_tooltip = restore_world_stage_effects
+		}
+        stage_6 = {
+			icon = GFX_situation_stage_6
+			icon_background = GFX_situation_stage_frame_blue
+			end = 60
+			on_first_enter = {
+				situation_event = { id = dw_event.2 }
+			}
+			custom_tooltip = restore_world_stage_effects
+		}
+        stage_7 = {
+			icon = GFX_situation_stage_7
+			icon_background = GFX_situation_stage_frame_blue
+			end = 70
+			on_first_enter = {
+				situation_event = { id = dw_event.2 }
+			}
+			custom_tooltip = restore_world_stage_effects
+		}
+        stage_8 = {
+			icon = GFX_situation_stage_8
+			icon_background = GFX_situation_stage_frame_blue
+			end = 80
+			on_first_enter = {
+				situation_event = { id = dw_event.2 }
+			}
+			custom_tooltip = restore_world_stage_effects
+		}
+        stage_9 = {
+			icon = GFX_situation_stage_9
+			icon_background = GFX_situation_stage_frame_blue
+			end = 90
+			on_first_enter = {
+				situation_event = { id = dw_event.2 }
+			}
+			custom_tooltip = restore_world_stage_effects
+		}
+        stage_10 = {
+			icon = GFX_situation_stage_10
+			icon_background = GFX_situation_stage_frame_blue
+			end = 100
+			on_first_enter = {
+				situation_event = { id = dw_event.2 }
+				owner = {
+					remove_country_flag = restoring_dyson_world
+				}
+			}
+			custom_tooltip = restore_world_final_stage_effects
+		}
+	}
+	approach = {
+		name = situation_restore_pause
+		icon = GFX_situation_approach_suspicious
+		icon_background = GFX_situation_approach_bg_red
+		potential = {
+
+		}
+		on_select = {
+			custom_tooltip = approach_outcome_tooltip
+		}
+	}
+	approach = {
+		name = situation_restore_active
+		icon = GFX_situation_approach_pop
+		icon_background = GFX_situation_approach_bg_yellow
+		default = yes
+		potential = {
+
+		}
+		on_select = {
+			custom_tooltip = approach_outcome_tooltip
+		}
+		resources = {
+			category = situations
+			upkeep = {
+				energy = 10
+				alloys = 10
+			}
+		}
+	}
+	approach = {
+		name = situation_restore_fast
+		icon = GFX_situation_approach_this_is_fine
+		icon_background = GFX_situation_approach_bg_green
+		allow = {
+			custom_tooltip = {
+				fail_text = too_late_to_change_approach
+				OR = {
+					NOT = { has_situation_flag = path_locked }
+					current_situation_approach = situation_snow_observation
+				}
+			}
+		}
+		on_select = {
+			custom_tooltip = approach_outcome_tooltip
+		}
+		resources = {
+			category = situations
+			produces = {
+				society_research = 25
+				physics_research = 25
+				engineering_research = 25
+			}
+			upkeep = {
+				energy = 100
+				alloys = 50
+			}
+		}
+	}
+	on_monthly = {
+
+	}
+	monthly_progress = {
+		base = 0
+		# base = 5
+		modifier = {
+			add = 0.05
+			# add = 5
+			desc = situation_restore_active_tt
+			current_situation_approach = situation_restore_active
+		}
+		modifier = {
+			add = 0.05
+			# add = 5
+			desc = situation_restore_fast_tt
+			current_situation_approach = situation_restore_fast
+		}
+	}
+}

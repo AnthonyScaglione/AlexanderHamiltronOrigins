@@ -1,0 +1,14 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_origin_together_forever"
+		texturefile = "gfx/event_pictures/origins/origin_together_forever.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_tf_ap_subspace_neural_relays"
+		texturefile = "gfx/interface/icons/ascension_perks/tf_ap_subspace_neural_relays.dds"
+		alwaystransparent = yes
+	}
+}
+

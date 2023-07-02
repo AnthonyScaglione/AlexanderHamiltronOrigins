@@ -1,0 +1,50 @@
+dw_planet_cracker_incomplete = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_dw_planet_cracker"
+	place_entity_on_planet_plane = no
+	show_galactic_map_icon = no
+
+	construction_blocks_and_blocked_by = none
+
+	potential = {
+		always = no
+	}
+}
+
+dw_planet_cracker = {
+	entity = "dw_planet_cracker_entity"
+	portrait = "GFX_megastructure_dw_planet_cracker"
+	place_entity_on_planet_plane = yes
+	show_galactic_map_icon = no
+	show_in_outliner = no
+
+	build_time = 1080
+
+	construction_blocks_and_blocked_by = none
+
+	upgrade_from = {
+		dw_planet_cracker_incomplete
+	}
+	
+	on_build_complete = {
+		fromfrom.planet = {
+            planet_event = {
+                id = planet_destruction.600
+            }
+            planet_event = {
+                id = dw_event.3
+            }
+		}
+	}
+
+	resources = {
+		category = station_gatherers
+		produces = { 
+            minerals = 10 
+            alloys = 3
+        }
+		upkeep = { energy = 5 }
+		#with tech 1
+	}
+}

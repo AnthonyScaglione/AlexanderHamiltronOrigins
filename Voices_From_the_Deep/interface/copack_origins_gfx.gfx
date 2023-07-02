@@ -1,0 +1,14 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_origin_patronmoon"
+		texturefile = "gfx/event_pictures/origins/origin_patronmoon.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_message_starving_moons"
+		texturefile = "gfx/interface/icons/message/message_starving_moons.dds"
+	}
+	
+}

@@ -1,0 +1,253 @@
+
+@distance = 50
+@base_moon_distance = 10
+@jumps = 2
+
+#abyssal
+tf_start_init = {
+	class = sc_a
+
+	usage = origin
+
+	flags = { empire_home_system }
+
+	planet = {
+        class = star
+        size = 20
+        orbit_distance = 0
+		orbit_angle = 0
+    }
+
+	planet = {
+        class = pc_hive_star
+        size = 100
+        orbit_distance = 0
+		orbit_angle = 36
+    }
+
+	planet = {
+		count = 1
+		orbit_distance = 70
+		home_planet = yes
+		class = pc_dyson_segment
+		orbit_angle = 252
+		size = 24
+		flags = { 
+			special_start_planet
+			is_dyson_world
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}	
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_dyson_segment
+		orbit_angle = 36
+		size = 24
+		flags = { 
+			is_dyson_world
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}	
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_dyson_segment
+		orbit_angle = 36
+		size = 24
+		flags = { 
+			is_dyson_world
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}	
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_dyson_segment
+		orbit_angle = 36
+		size = 24
+		flags = { 
+			is_dyson_world
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}	
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_dyson_segment
+		orbit_angle = 36
+		size = 24
+		flags = { 
+			is_dyson_world
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}	
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_dyson_segment
+		orbit_angle = 36
+		size = 24
+		flags = { 
+			is_dyson_world
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}	
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_dyson_segment
+		orbit_angle = 36
+		size = 24
+		flags = { 
+			is_dyson_world
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}	
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_dyson_segment
+		orbit_angle = 36
+		size = 24
+		flags = { 
+			is_dyson_world
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}	
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_dyson_segment
+		orbit_angle = 36
+		size = 24
+		flags = { 
+			is_dyson_world
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}	
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+	planet = {
+		count = 1
+		name = "Malfunctioning Habitat Panel"
+		orbit_distance = 0
+		class = pc_dyson_segment
+		orbit_angle = 36
+		size = 24
+		flags = { 
+			is_dyson_world
+		}
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+		}	
+		orbital_line = {
+			orbit_distance_from_parent = -50
+		}
+	}
+
+	
+
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1_first_colony"
+	}
+}

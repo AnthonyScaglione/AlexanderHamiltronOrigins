@@ -1,0 +1,24 @@
+origin_voices_from_the_deep = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_voices_from_the_deep.dds"
+	picture = GFX_origin_voices_from_the_deep
+	description = "origin_voices_from_the_deep_effects"
+	starting_colony = pc_abyssal
+	habitability_preference = pc_abyssal
+	max_once_global = yes
+	random_weight = { base = 1 }
+	initializers = { abyssal_start_init }
+	possible = { 
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+	}
+	traits = {
+		trait = trait_enthralled
+	}
+	#flags = { custom_start_screen }
+	#advanced_start = yes
+}
+

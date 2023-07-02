@@ -1,0 +1,24 @@
+origin_defender_of_the_sacred = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origin_defender_of_the_sacred.dds"
+	picture = GFX_origin_defender_of_the_sacred
+	description = "origin_defender_of_the_sacred_effects"
+	max_once_global = yes
+
+	random_weight = { base = 0 }
+
+	possible = { 
+        authority = {
+            OR = {
+                value = auth_imperial
+                value = auth_dictatorial
+            }
+        }
+        ethics = {
+            value = ethic_fanatic_spiritualist
+        }
+	}
+
+	#flags = { custom_start_screen }
+	#advanced_start = yes
+}

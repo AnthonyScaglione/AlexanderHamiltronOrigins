@@ -1,0 +1,789 @@
+namespace = tf_event
+
+@tf_tier3control = 6
+@tf_tier2control = 4
+@tf_tier1control = 2
+
+### Empire init - add ships
+country_event = {
+	id = tf_event.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {	
+		if = {
+			limit = {
+				AND = {
+                    has_origin = origin_together_forever
+				}
+			}
+			set_graphical_culture = tf_ship_gc
+			set_city_graphical_culture = tf_ship_gc
+            random_system_within_border = {		
+				limit = { exists = starbase }
+				starbase = { fleet = { destroy_fleet = this } }
+				create_starbase = {
+						size = "starbase_starport"
+						module = "shipyard"
+						module = "solar_panel_network"
+						building = "crew_quarters"
+					owner = root
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tf_event.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			has_origin = origin_together_forever
+			has_technology = tf_society_tech_1
+			NOT = {
+				has_technology = tf_society_tech_2
+			}
+			OR = {
+				last_increased_tech = tf_physics_tech_1
+				last_increased_tech = tf_physics_tech_2
+				last_increased_tech = tf_physics_tech_3
+				last_increased_tech = tf_society_tech_1
+				last_increased_tech = tf_society_tech_2
+				last_increased_tech = tf_society_tech_3
+				last_increased_tech = tf_engineering_tech_1
+				last_increased_tech = tf_engineering_tech_2
+				last_increased_tech = tf_engineering_tech_3
+			}
+		}
+	}
+
+	immediate = {
+		every_galaxy_planet = {
+			limit = {
+				OR = {
+					AND = {
+						exists = owner
+						owner = {
+							has_origin = origin_together_forever
+						}
+						is_capital = yes
+					}
+					distance = {
+						source = root.capital_scope
+						min_jumps = 0
+						max_jumps = 3
+					}
+				}
+			}
+			tf_recalculate_planet_bonus_modifier = yes
+		}
+	}
+}
+
+country_event = {
+	id = tf_event.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			has_origin = origin_together_forever
+			has_technology = tf_society_tech_2
+			NOT = {
+				has_technology = tf_society_tech_3
+			}
+			OR = {
+				last_increased_tech = tf_physics_tech_1
+				last_increased_tech = tf_physics_tech_2
+				last_increased_tech = tf_physics_tech_3
+				last_increased_tech = tf_society_tech_1
+				last_increased_tech = tf_society_tech_2
+				last_increased_tech = tf_society_tech_3
+				last_increased_tech = tf_engineering_tech_1
+				last_increased_tech = tf_engineering_tech_2
+				last_increased_tech = tf_engineering_tech_3
+			}
+		}
+	}
+	
+	immediate = {
+		every_galaxy_planet = {
+			limit = {
+				OR = {
+					AND = {
+						exists = owner
+						owner = {
+							has_origin = origin_together_forever
+						}
+						is_capital = yes
+					}
+					distance = {
+						source = root.capital_scope
+						min_jumps = 0
+						max_jumps = 5
+					}
+				}
+			}
+			tf_recalculate_planet_bonus_modifier = yes
+		}
+	}
+}
+
+
+country_event = {
+	id = tf_event.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			has_origin = origin_together_forever
+			has_technology = tf_society_tech_3
+			OR = {
+				last_increased_tech = tf_physics_tech_1
+				last_increased_tech = tf_physics_tech_2
+				last_increased_tech = tf_physics_tech_3
+				last_increased_tech = tf_society_tech_1
+				last_increased_tech = tf_society_tech_2
+				last_increased_tech = tf_society_tech_3
+				last_increased_tech = tf_engineering_tech_1
+				last_increased_tech = tf_engineering_tech_2
+				last_increased_tech = tf_engineering_tech_3
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_country_flag = has_subspace_neural_relays
+			}
+			every_galaxy_planet = {
+				limit = {
+					OR = {
+						AND = {
+							exists = owner
+							owner = {
+								has_origin = origin_together_forever
+							}
+							is_capital = yes
+						}
+						distance = {
+							source = root.capital_scope
+							bypass_empire = root
+							min_jumps = 0
+							max_jumps = 7
+						}
+					}
+				}
+				tf_recalculate_planet_bonus_modifier = yes
+			}
+		}
+		else = {
+			every_galaxy_planet = {
+				limit = {
+					OR = {
+						AND = {
+							exists = owner
+							owner = {
+								has_origin = origin_together_forever
+							}
+							is_capital = yes
+						}
+						distance = {
+							source = root.capital_scope
+							min_jumps = 0
+							max_jumps = 7
+						}
+					}
+				}
+				tf_recalculate_planet_bonus_modifier = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tf_event.7
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			has_origin = origin_together_forever
+			NOT = {
+				has_technology = tf_society_tech_1
+			}
+			OR = {
+				last_increased_tech = tf_physics_tech_1
+				last_increased_tech = tf_physics_tech_2
+				last_increased_tech = tf_physics_tech_3
+				last_increased_tech = tf_society_tech_1
+				last_increased_tech = tf_society_tech_2
+				last_increased_tech = tf_society_tech_3
+				last_increased_tech = tf_engineering_tech_1
+				last_increased_tech = tf_engineering_tech_2
+				last_increased_tech = tf_engineering_tech_3
+			}
+		}
+	}
+	
+	immediate = {
+		every_galaxy_planet = {
+			limit = {
+				OR = {
+					AND = {
+						exists = owner
+						owner = {
+							has_origin = origin_together_forever
+						}
+						is_capital = yes
+					}
+					distance = {
+						source = root.capital_scope
+						min_jumps = 0
+						max_jumps = 1
+					}
+				}
+			}
+			tf_recalculate_planet_bonus_modifier = yes
+		}
+	}
+}
+
+planet_event = {
+	id = tf_event.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			from = {
+				has_origin = origin_together_forever
+			}
+			exists = fromfrom
+			fromfrom = {
+				has_origin = origin_together_forever
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				from = {
+					has_origin = origin_together_forever
+				}
+			}
+			if = {
+				limit = {
+					from = {
+						has_technology = tf_society_tech_3
+					}
+				}
+				if = {
+					limit = {
+						from = {
+							has_country_flag = has_subspace_neural_relays
+						}	
+					}
+					every_galaxy_planet = {
+						limit = {
+							OR = {
+								AND = {
+									exists = owner
+									owner = {
+										has_origin = origin_together_forever
+									}
+									is_capital = yes
+								}
+								distance = {
+									source = root.capital_scope
+									bypass_empire = root
+									min_jumps = 0
+									max_jumps = 7
+								}
+							}
+						}
+						tf_recalculate_planet_bonus_modifier = yes
+					}
+				}
+				else = {
+					every_galaxy_planet = {
+						limit = {
+							OR = {
+								AND = {
+									exists = owner
+									owner = {
+										has_origin = origin_together_forever
+									}
+									is_capital = yes
+								}
+								distance = {
+									source = root.capital_scope
+									min_jumps = 0
+									max_jumps = 7
+								}
+							}
+						}
+						tf_recalculate_planet_bonus_modifier = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					from = {
+						has_technology = tf_society_tech_2
+					}
+				}
+				every_galaxy_planet = {
+					limit = {
+						OR = {
+							AND = {
+								exists = owner
+								owner = {
+									has_origin = origin_together_forever
+								}
+								is_capital = yes
+							}
+							distance = {
+								source = root.capital_scope
+								min_jumps = 0
+								max_jumps = 5
+							}
+						}
+					}
+					tf_recalculate_planet_bonus_modifier = yes
+				}
+			}
+			else_if = {
+				limit = {
+					from = {
+						has_technology = tf_society_tech_1
+					}
+				}
+				every_galaxy_planet = {
+					limit = {
+						OR = {
+							AND = {
+								exists = owner
+								owner = {
+									has_origin = origin_together_forever
+								}
+								is_capital = yes
+							}
+							distance = {
+								source = root.capital_scope
+								min_jumps = 0
+								max_jumps = 3
+							}
+						}
+					}
+					tf_recalculate_planet_bonus_modifier = yes
+				}
+			}
+			else = {
+				every_galaxy_planet = {
+					limit = {
+						OR = {
+							AND = {
+								exists = owner
+								owner = {
+									has_origin = origin_together_forever
+								}
+								is_capital = yes
+							}
+							distance = {
+								source = root.capital_scope
+								min_jumps = 0
+								max_jumps = 1
+							}
+						}
+					}
+					tf_recalculate_planet_bonus_modifier = yes
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				exists = fromfrom
+				fromfrom = {
+					has_origin = origin_together_forever
+				}
+			}
+			if = {
+				limit = {
+					fromfrom = {
+						has_technology = tf_society_tech_3
+					}
+				}
+				if = {
+					limit = {
+						from = {
+							has_country_flag = has_subspace_neural_relays
+						}
+					}
+					every_galaxy_planet = {
+						limit = {
+							OR = {
+								AND = {
+									exists = owner
+									owner = {
+										has_origin = origin_together_forever
+									}
+									is_capital = yes
+								}
+								distance = {
+									source = root.capital_scope
+									bypass_empire = root
+									min_jumps = 0
+									max_jumps = 7
+								}
+							}
+						}
+						tf_recalculate_planet_bonus_modifier = yes
+					}
+				}
+				else = {
+					every_galaxy_planet = {
+						limit = {
+							OR = {
+								AND = {
+									exists = owner
+									owner = {
+										has_origin = origin_together_forever
+									}
+									is_capital = yes
+								}
+								distance = {
+									source = root.capital_scope
+									min_jumps = 0
+									max_jumps = 7
+								}
+							}
+						}
+						tf_recalculate_planet_bonus_modifier = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					fromfrom = {
+						has_technology = tf_society_tech_2
+					}
+				}
+				every_galaxy_planet = {
+					limit = {
+						OR = {
+							AND = {
+								exists = owner
+								owner = {
+									has_origin = origin_together_forever
+								}
+								is_capital = yes
+							}
+							distance = {
+								source = root.capital_scope
+								min_jumps = 0
+								max_jumps = 5
+							}
+						}
+					}
+					tf_recalculate_planet_bonus_modifier = yes
+				}
+			}
+			else_if = {
+				limit = {
+					fromfrom = {
+						has_technology = tf_society_tech_1
+					}
+				}
+				every_galaxy_planet = {
+					limit = {
+						OR = {
+							AND = {
+								exists = owner
+								owner = {
+									has_origin = origin_together_forever
+								}
+								is_capital = yes
+							}
+							distance = {
+								source = root.capital_scope
+								min_jumps = 0
+								max_jumps = 3
+							}
+						}
+					}
+					tf_recalculate_planet_bonus_modifier = yes
+				}
+			}
+			else = {
+				every_galaxy_planet = {
+					limit = {
+						OR = {
+							AND = {
+								exists = owner
+								owner = {
+									has_origin = origin_together_forever
+								}
+								is_capital = yes
+							}
+							distance = {
+								source = root.capital_scope
+								min_jumps = 0
+								max_jumps = 1
+							}
+						}
+					}
+					tf_recalculate_planet_bonus_modifier = yes
+				}
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = tf_event.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = { has_origin = origin_together_forever }
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				owner = {
+					has_origin = origin_together_forever
+				}
+			}
+			if = {
+				limit = {
+					owner = {
+						has_technology = tf_society_tech_3
+					}
+				}
+				if = {
+					limit = {
+						from = {
+							has_country_flag = has_subspace_neural_relays
+						}
+					}
+					every_galaxy_planet = {
+						limit = {
+							OR = {
+								AND = {
+									exists = owner
+									owner = {
+										has_origin = origin_together_forever
+									}
+									is_capital = yes
+								}
+								distance = {
+									source = root.capital_scope
+									bypass_empire = root
+									min_jumps = 0
+									max_jumps = 7
+								}
+							}
+						}
+						tf_recalculate_planet_bonus_modifier = yes
+					}
+				}
+				else = {
+					every_galaxy_planet = {
+						limit = {
+							OR = {
+								AND = {
+									exists = owner
+									owner = {
+										has_origin = origin_together_forever
+									}
+									is_capital = yes
+								}
+								distance = {
+									source = root.capital_scope
+									min_jumps = 0
+									max_jumps = 7
+								}
+							}
+						}
+						tf_recalculate_planet_bonus_modifier = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					owner = {
+						has_technology = tf_society_tech_2
+					}
+				}
+				every_galaxy_planet = {
+					limit = {
+						OR = {
+							AND = {
+								exists = owner
+								owner = {
+									has_origin = origin_together_forever
+								}
+								is_capital = yes
+							}
+							distance = {
+								source = root.capital_scope
+								min_jumps = 0
+								max_jumps = 5
+							}
+						}
+					}
+					tf_recalculate_planet_bonus_modifier = yes
+				}
+			}
+			else_if = {
+				limit = {
+					owner = {
+						has_technology = tf_society_tech_1
+					}
+				}
+				every_galaxy_planet = {
+					limit = {
+						OR = {
+							AND = {
+								exists = owner
+								owner = {
+									has_origin = origin_together_forever
+								}
+								is_capital = yes
+							}
+							distance = {
+								source = root.capital_scope
+								min_jumps = 0
+								max_jumps = 3
+							}
+						}
+					}
+					tf_recalculate_planet_bonus_modifier = yes
+				}
+			}
+			else = {
+				every_galaxy_planet = {
+					limit = {
+						OR = {
+							AND = {
+								exists = owner
+								owner = {
+									has_origin = origin_together_forever
+								}
+								is_capital = yes
+							}
+							distance = {
+								source = root.capital_scope
+								min_jumps = 0
+								max_jumps = 1
+							}
+						}
+					}
+					tf_recalculate_planet_bonus_modifier = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = tf_event.8
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_together_forever
+	}
+
+	immediate = {	
+		every_galaxy_planet = {
+			limit = {
+				OR = {
+					AND = {
+						exists = owner
+						owner = {
+							has_origin = origin_together_forever
+						}
+						is_capital = yes
+					}
+					distance = {
+						source = root.capital_scope
+						min_jumps = 0
+						max_jumps = 1
+					}
+				}
+			}
+			tf_recalculate_planet_bonus_modifier = yes
+		}
+		root.capital_scope = {
+			add_deposit = tf_crash_site
+		}
+		add_resource = {
+			energy = 200
+			minerals = 100
+			food = 200
+		}
+
+	}
+}
+
+planet_event = {
+    id = tf_event.9
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        owner = { has_origin = origin_together_forever }
+    }
+    immediate = {
+        generate_start_deposits_and_blockers = yes
+        generate_tf_start_buildings_and_districts = yes # replace this effect call with one to your effect that sets up buildings/districts
+        generate_start_pops = yes # this is a custom effect, you can reuse the relevant built-in one "generate_start_pops"
+        generate_home_planet_final_pass = yes
+    }
+}
+
+country_event = {
+	id = tf_event.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			has_origin = origin_together_forever
+			has_country_flag = has_subspace_neural_relays
+		}
+	}
+	
+	immediate = {
+		every_galaxy_planet = {
+			limit = {
+				OR = {
+					AND = {
+						exists = owner
+						owner = {
+							has_origin = origin_together_forever
+							has_country_flag = has_subspace_neural_relays
+						}
+						is_capital = yes
+					}
+					distance = {
+						source = root.capital_scope
+						bypass_empire = root
+						min_jumps = 0
+						max_jumps = 7
+					}
+				}
+			}
+			tf_recalculate_planet_bonus_modifier = yes
+		}
+	}
+}
